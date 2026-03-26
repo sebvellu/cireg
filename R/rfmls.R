@@ -5,7 +5,7 @@ rfmls <- function(yvls, yadj, yols, xvls, rmat, rvec, wght) {
 	#
 	cfff <- qr_safe_solve(ahlf, yadj)
 	cffr <- rmat %*% cfff + rvec
-	cffr <- matrix(cffr, wnum, ynum)
+	cffr <- matrix(cffr, ncol(xvls), NCOL(yvls))
 	#
 	rsdr <- yadj - xvls %*% cffr
     fitr <- yvls - rsdr

@@ -57,10 +57,10 @@ imls <- function(
 	# Restricted Case:
 	#
 	if (is.null(rmat)) {
-		rmat <- diag(1, (znum + xnum) * ynum)
+		rmat <- diag(1, wnum * ynum)
 	}
 	if (is.null(rvec)) {
-		rvec <- numeric((znum + xnum) * ynum)
+		rvec <- numeric(wnum * ynum)
 	}
 	if (is.null(wght)) {
 		wght <- diag(1, ynum)
