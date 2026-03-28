@@ -23,9 +23,11 @@
 #' @seealso qr_safe_solve
 #'
 #' @examples
+#' \dontrun{
 #' lmat <- matrix(c(2, 0, 1, 3), 2, 2)
 #' bmat <- c(1, 2)
 #' safe_forwardsolve(lmat, bmat)
+#' }
 #' 
 #' @keywords internal
 #' 

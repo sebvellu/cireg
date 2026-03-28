@@ -18,6 +18,7 @@
 #' Cholesky factor. Otherwise it is a stable eigenvalue-based factor.
 #'
 #' @examples
+#' \dontrun{
 #' # Basic usage
 #' matr <- matrix(c(1, 0.9, 0.9, 1), 2, 2)
 #' safe_chol(matr)
@@ -26,6 +27,7 @@
 #' matr <- matr
 #' matr[1, 1] <- 1e-14
 #' safe_chol(matr)
+#' }
 #' 
 #' @keywords internal
 #' 

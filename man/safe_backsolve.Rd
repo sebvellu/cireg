@@ -30,9 +30,11 @@ This ensures that the function never fails due to singular or
 near-singular triangular systems.
 }
 \examples{
+\dontrun{
 rmat <- matrix(c(2, 1, 0, 3), 2, 2)
 bmat <- c(1, 2)
 safe_backsolve(rmat, bmat)
+}
 
 }
 \seealso{

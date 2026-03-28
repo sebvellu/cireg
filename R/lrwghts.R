@@ -25,11 +25,13 @@
 #' A numeric vector of kernel weights corresponding to the selected kernel.
 #' 
 #' @examples
+#' \dontrun{
 #' # Bartlett weights for length 20 with bandwidth 5
 #' lrwghts(20, 5, "ba")
 #'
 #' # Quadratic spectral kernel example
 #' lrwghts(30, 10, "qs")
+#' }
 #' 
 #' @keywords internal
 #' 

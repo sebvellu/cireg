@@ -4,7 +4,7 @@ kpssquant <- function(
     rslt <- numeric(simu)
 	#
 	for (indx in 1:simu) {
-        tsrs <- rnorm(lgth)
+        tsrs <- stats::rnorm(lgth)
 	    if (is.null(dpow)) {
             rsds <- tsrs
 	    } else {

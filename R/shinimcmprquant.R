@@ -10,8 +10,8 @@ shinimcmprquant <- function(prob, zpow, zadd, lgth = 1000, simu = 10000) {
 	}
 	rslt <- numeric(simu)
     for (indx in 1:simu) {
-        yvls <- rnorm(lgth)
-        xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+        yvls <- stats::rnorm(lgth)
+        xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
         zvls <- getzvls(zpow, xvls)
 		#
 		s1zx <- cbind(apply(zvls, 2, cumsum), zadd, xvls)

@@ -15,8 +15,8 @@ povrcmprquant <- function(prob, zpow, lgth = 1000, simu = 10000) {
 	}
 	rslt <- numeric(simu)
 	for (indx in 1:simu) {
-		yvls <- cumsum(rnorm(lgth))
-		xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+		yvls <- cumsum(stats::rnorm(lgth))
+		xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
 		zvls <- getzvls(zpow, xvls)
 		dvls <- zvls[, didx, drop = FALSE]
 		xaug <- zvls[, !didx, drop = FALSE]

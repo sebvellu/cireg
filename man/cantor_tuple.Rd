@@ -22,7 +22,9 @@ unchanged; for n = 2 it behaves like \code{cantor_pair}; for larger n it applies
 recursive pairing.
 }
 \examples{
+\dontrun{
 cantor_tuple(c(2, 4, 6))
+}
 
 }
 \seealso{

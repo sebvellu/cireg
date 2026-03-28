@@ -46,6 +46,9 @@ Default is \code{"ba"}.}
 
 Default is \code{"and"}.}
 
+\item{step}{Integer, either 1 or 2. Specifys whether one- or two-step
+detrending is applied.}
+
 \item{smpl}{Sample size to consider in case critical values
 have to be simulated.}
 

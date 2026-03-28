@@ -27,6 +27,7 @@ This function always returns a real matrix A such that t(A) \%*\% A
 is a positive semidefinite approximation of the input matrix.
 }
 \examples{
+\dontrun{
 # Basic usage
 matr <- matrix(c(1, 0.9, 0.9, 1), 2, 2)
 safe_chol(matr)
@@ -35,6 +36,7 @@ safe_chol(matr)
 matr <- matr
 matr[1, 1] <- 1e-14
 safe_chol(matr)
+}
 
 }
 \keyword{internal}

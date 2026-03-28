@@ -44,7 +44,7 @@ waldlstest <- function(sigl, objt, rmat, rvec, rstr = FALSE) {
         cvar <- objt$cvrs
     }
     stat <- waldstat(cffs, cvar, rmat, rvec)
-    crit <- qchisq(1 - sigl, stat$degf)
+    crit <- stats::qchisq(1 - sigl, stat$degf)
     rjct <- c(stat$stat > crit)
     return(list(stat = stat$stat, crit = crit, rjct = rjct))
 }

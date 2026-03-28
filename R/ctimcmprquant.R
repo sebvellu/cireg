@@ -11,8 +11,8 @@ ctimcmprquant <- function(prob, ynum, zpow, zadd, lgth = 1000, simu = 10000) { #
 	rslt <- matrix(0, simu, 3)
 	#
     for (indx in 1:simu) {
-        yvls <- matrix(rnorm(lgth * ynum), lgth)
-        xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+        yvls <- matrix(stats::rnorm(lgth * ynum), lgth)
+        xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
         zvls <- getzvls(zpow, xvls)
 		#
 		s1zx <- cbind(apply(zvls, 2, cumsum), zadd, xvls)

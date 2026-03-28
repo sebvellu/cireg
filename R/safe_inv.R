@@ -10,7 +10,9 @@
 #' if solve fails.
 #'
 #' @examples
+#' \dontrun{
 #' safe_inv(diag(3))
+#' }
 #'
 #' @seealso mp_inv
 #' 

@@ -20,7 +20,9 @@ The Cantor pairing function maps two non-negative integers (x, y)
 to a single non-negative integer in a reversible way.
 }
 \examples{
+\dontrun{
 cantor_pair(c(3, 5))
+}
 
 }
 \keyword{internal}

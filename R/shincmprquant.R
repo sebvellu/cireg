@@ -10,8 +10,8 @@ shincmprquant <- function(prob, zpow, lgth = 1000, simu = 10000) {
 	}
 	rslt <- numeric(simu)
     for (indx in 1:simu) {
-        yvls <- rnorm(lgth)
-        xvls <- apply(matrix(rnorm(lgth * xnum), lgth, xnum), 2, cumsum)
+        yvls <- stats::rnorm(lgth)
+        xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth, xnum), 2, cumsum)
         rsds <- qr.resid(qr(getzvls(zpow, xvls)), yvls)
         rslt[indx] <- kpssstatint(rsds, 1)
     }

@@ -29,6 +29,9 @@
 #' 
 #' Default is `"and"`.
 #' 
+#' @param step Integer, either 1 or 2. Specifys whether one- or two-step
+#' detrending is applied.
+#' 
 #' @param smpl Sample size to consider in case critical values 
 #' have to be simulated.
 #' 

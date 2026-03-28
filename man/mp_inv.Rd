@@ -30,8 +30,10 @@ are discarded. The pseudoinverse is constructed using the remaining
 singular values and corresponding singular vectors.
 }
 \examples{
+\dontrun{
 A <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)
 mp_inv(A)
+}
 
 }
 \keyword{internal}

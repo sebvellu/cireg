@@ -26,9 +26,11 @@
 #' @seealso mp_inv
 #'
 #' @examples
+#' \dontrun{
 #' A <- matrix(c(1, 2, 2, 4), 2)
 #' b <- c(1, 1)
 #' qr_safe_solve(A, b)
+#' }
 #' 
 #' @keywords internal
 #' 

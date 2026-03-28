@@ -14,8 +14,8 @@ tfbimcmprquant <- function(
 	band <- ceiling(bfrc * lgth)
 	#
     for (indx in 1:simu) {
-        yvls <- rnorm(lgth)
-        xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+        yvls <- stats::rnorm(lgth)
+        xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
         zvls <- getzvls(zpow, xvls)
 		#
 		# s1zx <- cbind(apply(zvls, 2, cumsum), zadd, xvls)
@@ -33,7 +33,7 @@ tfbimcmprquant <- function(
 		rsdm <- imlsfit(yvls, zvls, xvls, zadd, NULL, NULL, NULL)$rsdm
 		lrvr <- lrvar(c(rsdm[1], diff(rsdm)), krnl, band)$longvar
 		#
-		rslt[indx] <-  rnorm(1)/sqrt(lrvr)
+		rslt[indx] <-  stats::rnorm(1)/sqrt(lrvr)
 	}
 	#
 	return(get_quantile(rslt, prob))

@@ -41,10 +41,12 @@ plus the number of lagged differences
 plus the number of deterministic regressors
 }
 \examples{
+\dontrun{
 set.seed(1)
 tsrs <- cumsum(rnorm(200))
 dvls <- cbind(rep(1, length(tsrs)))
 adflags(tsrs, dvls, maxl = 12, crit = "bic")
+}
 
 }
 \keyword{internal}

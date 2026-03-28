@@ -19,7 +19,9 @@ usually because the matrix is singular or ill-conditioned,
 the function returns the result of \code{mp_inv} instead.
 }
 \examples{
+\dontrun{
 safe_inv(diag(3))
+}
 
 }
 \seealso{

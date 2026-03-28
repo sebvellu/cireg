@@ -14,7 +14,9 @@
 #' @seealso cantor_pair
 #'
 #' @examples
+#' \dontrun{
 #' cantor_tuple(c(2, 4, 6))
+#' }
 #' 
 #' @keywords internal
 #' 

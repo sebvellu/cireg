@@ -32,10 +32,12 @@
 #' @return An integer. Selected number of lags. 
 #'
 #' @examples
+#' \dontrun{
 #' set.seed(1)
 #' tsrs <- cumsum(rnorm(200))
 #' dvls <- cbind(rep(1, length(tsrs)))
 #' adflags(tsrs, dvls, maxl = 12, crit = "bic")
+#' }
 #' 
 #' @keywords internal
 

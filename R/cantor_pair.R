@@ -10,7 +10,9 @@
 #' @return A single numeric value representing the Cantor pairing of `xval`.
 #'
 #' @examples
+#' \dontrun{
 #' cantor_pair(c(3, 5))
+#' }
 #' 
 #' @keywords internal
 #' 

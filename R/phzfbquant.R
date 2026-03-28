@@ -8,16 +8,16 @@ phzfbquant <- function(
 	rslt <- matrix(NA_real_, simu, 2) #matrix(0, simu, 4)
 	#
 	for (indx in 1:simu) {
-		yvls <- cumsum(rnorm(lgth))
+		yvls <- cumsum(stats::rnorm(lgth))
 		if (xnum > 0) {
-			xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+			xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
 			yvls <- qr.resid(qr(cbind(dvls, xvls)), yvls)
 			dvls <- NULL
 		} else {
 			xvls <- NULL
 		}
 		objt <- difustat(yvls, dvls, xvls, step)
-		rslt[indx, ] <- phzfixbstat(objt, krnl, band)[1:2]
+		rslt[indx, ] <- phzfbstat(objt, krnl, band)[1:2]
 	}
     #
 	return(apply(rslt, 2, get_quantile, prob))

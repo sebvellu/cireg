@@ -14,8 +14,8 @@ wfbimcmprquant <- function(
 	band <- ceiling(bfrc * lgth)
 	#
     for (indx in 1:simu) {
-        yvls <- matrix(rnorm(lgth * ynum), lgth)
-        xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+        yvls <- matrix(stats::rnorm(lgth * ynum), lgth)
+        xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
         zvls <- getzvls(zpow, xvls)
 		#
 		# s1zx <- cbind(apply(zvls, 2, cumsum), zadd, xvls)
@@ -32,7 +32,7 @@ wfbimcmprquant <- function(
 		# rsdm <- qr.resid(qr(s1zo), s1yv)
 		rsdm <- imlsfit(yvls, zvls, xvls, zadd, NULL, NULL, NULL)$rsdm
 		lrvr <- lrvar(rbind(rsdm[1, ], diff(rsdm)), krnl, band)$longvar
-		nvls <- rnorm(hypo * ynum)
+		nvls <- stats::rnorm(hypo * ynum)
 		stat <- sum(nvls * ((safesolve(lrvr) %x% diag(1, hypo)) %*% nvls))
 		#
 		rslt[indx] <- stat

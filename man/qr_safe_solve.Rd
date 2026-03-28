@@ -32,9 +32,11 @@ If this produces an error, a pseudoinverse-based solution is used:
 \code{mp_inv(mata) \%*\% matb}
 }
 \examples{
+\dontrun{
 A <- matrix(c(1, 2, 2, 4), 2)
 b <- c(1, 1)
 qr_safe_solve(A, b)
+}
 
 }
 \seealso{

@@ -48,13 +48,13 @@ tlstest <- function(sigl, objt, rvec, rval, rstr = FALSE, dirc = 0) {
     }
     stat <- tstat(cffs, cvar, rvec, rval)
     if (dirc == 0) {
-        crit <- qnorm(1 - sigl/2)
+        crit <- stats::qnorm(1 - sigl/2)
         rjct <- c(abs(stat) > crit)
     } else if (dirc == 1) {
-        crit <- qnorm(1 - sigl)
+        crit <- stats::qnorm(1 - sigl)
         rjct <- c(stat > crit)
     } else {
-        crit <- -qnorm(1 - sigl)
+        crit <- -stats::qnorm(1 - sigl)
         rjct <- c(stat < crit)
     }
     return(list(stat = stat, crit = crit, rjct = rjct))

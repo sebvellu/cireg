@@ -34,11 +34,13 @@ Kernel weights are computed for lags from \code{1} up to the smaller of
 \code{lgth - 1} or \code{ceiling(bwdh) - 1}, depending on the kernel.
 }
 \examples{
+\dontrun{
 # Bartlett weights for length 20 with bandwidth 5
 lrwghts(20, 5, "ba")
 
 # Quadratic spectral kernel example
 lrwghts(30, 10, "qs")
+}
 
 }
 \keyword{internal}

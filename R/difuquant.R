@@ -5,9 +5,9 @@ difuquant <- function(
 	rslt <- matrix(NA_real_, simu, 2)
 	#
 	for (indx in 1:simu) {
-		yvls <- cumsum(rnorm(lgth))
+		yvls <- cumsum(stats::rnorm(lgth))
 		if (xnum > 0) {
-			xvls <- apply(matrix(rnorm(lgth * xnum), lgth), 2, cumsum)
+			xvls <- apply(matrix(stats::rnorm(lgth * xnum), lgth), 2, cumsum)
 			yvls <- qr.resid(qr(cbind(dvls, xvls)), yvls)
 			dvls <- NULL
 		} else {

@@ -9,16 +9,6 @@
 #' ADF regression, which can be reused for information criteria based
 #' lag selection.
 #' 
-#' @details
-#' The estimated regression is:
-#'   delta y_t = a * y_{t-1}
-#'               + sum_{i=1}^lags b_i * delta y_{t-i}
-#'               + deterministic terms
-#'               + error_t
-#'
-#' The statistic is computed after partialling out lagged differences
-#' and deterministic regressors using QR decomposition. 
-#' 
 #' @param tsrs numeric vector. Time series to be tested for a unit root.
 #' 
 #' @param dvls optional numeric matrix. Deterministic regressors such as
@@ -32,9 +22,11 @@
 #'   - `rsds`: numeric vector. Regression residuals from the full ADF model.
 #'
 #' @examples
+#' \dontrun{
 #' set.seed(1)
 #' tsrs <- cumsum(rnorm(200))
 #' adfstat(tsrs, lags = 2)
+#' }
 #' 
 #' @keywords internal
 
