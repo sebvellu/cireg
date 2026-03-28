@@ -23,15 +23,13 @@
 #' probability level.
 #'
 #' @examples
-#' \dontrun{
 #' set.seed(1)
 #' x <- rnorm(100)
 #' get_quantile(x, 0.5)
 #' get_quantile(x, 0.9)
-#' }
 #' 
-#' @keywords internal
-#' 
+#' @export
+
 get_quantile <- function(smpl, perc) {
 	qnts <- floor(perc * length(smpl))
 	return(sort(smpl, na.last = FALSE, partial = qnts)[qnts])
