@@ -66,6 +66,7 @@ pozfbtest <- function(
     lgth <- length(yvls)
     #bfrc <- 2 * 1:50/100
     dvls <- polydet(lgth, dpow)
+    stat <- difustat(yvls, dvls, xvls)
     stat <- phzfbstat(stat, krnl, band)
     #bfrc <- bfrc[which.min(abs(bfrc - stat[3]))]
     crit <- getpozfbqntl(
