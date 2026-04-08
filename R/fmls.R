@@ -1,5 +1,3 @@
-#' @export
-
 fmls <- function(
 	yvls, zvls, xvls, dzdx, krnl = "ba", band = "and",
     rmat = NULL, rvec = NULL, wght = NULL, dtrn = NULL, step = 2

@@ -2,7 +2,7 @@
 
 export(adftest)
 export(ctimcmprtest)
-export(fmls)
+export(fmreg)
 export(imcmpr)
 export(kpsstest)
 export(olshac)
