@@ -9,11 +9,16 @@ Author: Sebastian Veldhuis [aut, cre]
 Maintainer: Sebastian Veldhuis <sebvellu@outlook.com>
 Description: Provides tools for estimation and hypothesis testing in
     (systems of) linear and nonlinear cointegrating regressions.
-License: GPL-3
+License: GPL (>= 3)
 Depends: 
     R (>= 4.4)
 Imports: 
+    helperkit (>= 0.0.0.9000),
+    lrvar (>= 0.0.0.9000),
     stats (>= 4.4)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Remotes: 
+    sebvellu/helperkit,
+    sebvellu/lrvar

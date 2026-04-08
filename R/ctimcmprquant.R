@@ -27,5 +27,5 @@ ctimcmprquant <- function(prob, ynum, zpow, zadd, lgth = 1000, simu = 10000) { #
 		rslt[indx, ] <- ctstatint(s1rs, NULL)
 	}
 	#
-	return(apply(rslt, 2, get_quantile, prob))
+	return(apply(rslt, 2, helperkit::get_quantile, prob))
 }

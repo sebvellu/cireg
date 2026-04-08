@@ -2,9 +2,10 @@
 
 export(adftest)
 export(ctimcmprtest)
-export(get_quantile)
+export(fmls)
 export(imcmpr)
 export(kpsstest)
+export(olshac)
 export(phzfbtest)
 export(phztest)
 export(poadftest)

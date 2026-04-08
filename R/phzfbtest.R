@@ -71,7 +71,7 @@ phzfbtest <- function(
 ) {
     lgth <- length(tsrs)
     #bfrc <- 2 * 1:50/100
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     stat <- difustat(tsrs, dvls, NULL, step)
     stat <- phzfbstat(stat, krnl, band)
     #bfrc <- bfrc[which.min(abs(bfrc - stat[3]))]

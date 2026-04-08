@@ -1,7 +1,7 @@
 difuquant <- function(
 	prob, dpow = NULL, xnum = 0, step = 2, lgth = 1000, simu = 10000
 ) {
-	dvls <- polydet(lgth, dpow)
+	dvls <- helperkit::polydet(lgth, dpow)
 	rslt <- matrix(NA_real_, simu, 2)
 	#
 	for (indx in 1:simu) {
@@ -17,5 +17,5 @@ difuquant <- function(
 		rslt[indx, ] <- c(objt$cffs, objt$tsta)
 	}
     #
-	return(apply(rslt, 2, get_quantile, prob))
+	return(apply(rslt, 2, helperkit::get_quantile, prob))
 }

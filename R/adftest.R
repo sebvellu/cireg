@@ -48,7 +48,7 @@ adftest <- function(
     smpl = 1000, simu = 10000, tolr = .Machine$double.eps
 ) {
     lgth <- length(tsrs)
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     lags <- adflags(tsrs, dvls, maxl, crit)
     stat <- adfstat(tsrs, dvls, lags)$stat
     crit <- getdifuqntl(sigl, dpow, 0, smpl, simu, tolr)

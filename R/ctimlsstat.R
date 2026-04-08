@@ -11,7 +11,8 @@ ctimlsstat <- function(
 		rvec = NULL,
 		wght = NULL
 	)
-    long <- lrvarstd(yvls, zvls, diffdtrnd(xvls, dtrn, step), krnl, band)$clrv
+	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
+    long <- lrvarstd(yvls, zvls, vvls, krnl, band)$clrv
     s1rs <- rslt$rsds
 	return(ctstatint(s1rs, long))
 }

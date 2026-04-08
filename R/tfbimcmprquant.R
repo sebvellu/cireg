@@ -31,10 +31,10 @@ tfbimcmprquant <- function(
 		# s1zo <- cbind(s1zx, orth)
 		# rsdm <- qr.resid(qr(s1zo), s1yv)
 		rsdm <- imlsfit(yvls, zvls, xvls, zadd, NULL, NULL, NULL)$rsdm
-		lrvr <- lrvar(c(rsdm[1], diff(rsdm)), krnl, band)$longvar
+		lrvr <- lrvar::lrvar(c(rsdm[1], diff(rsdm)), krnl, band)$longvar
 		#
 		rslt[indx] <-  stats::rnorm(1)/sqrt(lrvr)
 	}
 	#
-	return(get_quantile(rslt, prob))
+	return(helperkit::get_quantile(rslt, prob))
 }

@@ -11,7 +11,8 @@ shinimlsstat <- function(
 		rvec = NULL,
 		wght = NULL
 	)
-    long <- lrvarstd(yvls, zvls, diffdtrnd(xvls, dtrn, step), krnl, band)$clrv
+	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
+    long <- lrvarstd(yvls, zvls, vvls, krnl, band)$clrv
     rsds <- c(rslt$rsds[1], diff(rslt$rsds))
 	return(drop(kpssstatint(rsds, long)))
 }

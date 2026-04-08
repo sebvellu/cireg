@@ -22,5 +22,5 @@ povrcmprquant <- function(prob, zpow, lgth = 1000, simu = 10000) {
 		xaug <- zvls[, !didx, drop = FALSE]
 		rslt[indx] <- povrstat(yvls, xvls, dvls, xaug, NULL, NULL, 1)
 	}
-	return(get_quantile(rslt, prob))
+	return(helperkit::get_quantile(rslt, prob))
 }

@@ -10,7 +10,7 @@ lookupvewa24ctqntl <- function(
 ) {
     tabl <- crit_vewa24_ct # stored in sysdata.rda
     znum <- ncol(zpow)
-    zpow <- paste(sort(apply(zpow, 1, cantor_tuple)), collapse = "-")
+    zpow <- paste(sort(apply(zpow, 1, helperkit::cantor_tuple)), collapse = "-")
 	cndn <- (tabl$ynum == ynum) & (tabl$zpow == zpow) & (tabl$znum == znum)
     cndn <- cndn & (tabl$stat == stat)
 	rslt <- numeric(length(prob))

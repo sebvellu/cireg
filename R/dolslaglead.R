@@ -30,7 +30,7 @@ dolslaglead <- function(
 			} else { #if (lale == "bic") {
 				temp <- log(smpl) * pars
 			}
-			temp <- smpl * ldet(crossprod(rsds)/smpl) + temp
+			temp <- smpl * helperkit::ldet(crossprod(rsds)/smpl) + temp
 			if (temp < info) {
 				lvls <- c(lags, lags)
 				info <- temp
@@ -62,7 +62,7 @@ dolslaglead <- function(
 				} else { #if (lale == "bic") {
 					temp <- log(smpl) * pars
 				}
-				temp <- smpl * ldet(crossprod(rsds)/smpl) + temp
+				temp <- smpl * helperkit::ldet(crossprod(rsds)/smpl) + temp
 				if (temp < info) {
 					lvls <- c(lags, lead)
 					info <- temp

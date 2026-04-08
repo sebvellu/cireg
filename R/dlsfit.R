@@ -43,7 +43,7 @@ dlsfit <- function(
 		lead <- lale[2]
 	}
 	#
-	vvls <- diffdtrnd(xvls, dtrn, step)
+	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
 	#
 	lmax <- lgth - lead - 1
 	bwrd <- matrix(NA_real_, lmax - lags, xnum * lags)

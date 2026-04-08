@@ -10,7 +10,7 @@ lookupvowa24qntl <- function(
 ) {
     tabl <- crit_vowa24  # stored in sysdata.rda
     znum <- ncol(zpow)
-    zpow <- paste(sort(apply(zpow, 1, cantor_tuple)), collapse = "-")
+    zpow <- paste(sort(apply(zpow, 1, helperkit::cantor_tuple)), collapse = "-")
 	cndn <- (tabl$krnl == krnl) & (tabl$znum == znum) & (tabl$zpow == zpow)
 	cndn <- cndn & (tabl$hypo == hypo) & (abs(tabl$bfrc - bfrc) < tolr)
 	rslt <- numeric(length(prob))

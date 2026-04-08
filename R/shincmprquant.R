@@ -15,5 +15,5 @@ shincmprquant <- function(prob, zpow, lgth = 1000, simu = 10000) {
         rsds <- qr.resid(qr(getzvls(zpow, xvls)), yvls)
         rslt[indx] <- kpssstatint(rsds, 1)
     }
-	return(get_quantile(rslt, prob))
+	return(helperkit::get_quantile(rslt, prob))
 }

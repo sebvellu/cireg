@@ -1,6 +1,6 @@
-imls <- function(
-	yvls, zvls, xvls, zadd = NULL, rmat = NULL, rvec = NULL, wght = NULL, 
-	krnl = "ba", band = "and", dtrn = NULL, step = 2
+dls <- function(
+	yvls, zvls, xvls, lale = "aic", rmat = NULL, rvec = NULL, wght = NULL,
+	krnl = "ba", band = "and", dtrn = NULL, step = 2, maxl = NULL, symm = TRUE
 ) {
 	yvls <- as.matrix(yvls)
 	zvls <- as.matrix(zvls)
@@ -11,32 +11,45 @@ imls <- function(
 	znum <- ncol(zvls)
 	xnum <- ncol(xvls)
 	#
-	rslt <- imlsfit(yvls, zvls, xvls, zadd, NULL, NULL, NULL)
-    s1yv <- rslt$s1yv
-    wvls <- rslt$wvls
-    qrwv <- rslt$qrwv
+    rslt <- dlsfit(
+		yvls = yvls, 
+		zvls = zvls,
+		xvls = xvls,
+		lale = lale,
+		rmat = NULL, 
+		rvec = NULL,
+		wght = NULL,
+		dtrn = dtrn,
+		step = step,
+		maxl = maxl,
+		symm = symm
+	)
+	vvls <- rslt$vvls
+	yadj <- rslt$yadj
+	wvls <- rslt$wvls
+	qrwv <- rslt$qrwv
 	cffs <- rslt$cffs
 	fits <- rslt$fits
 	rsds <- rslt$rsds
 	ufit <- rslt$ufit
 	ursd <- rslt$ursd
-    #
-	cvls <- rslt$cvls
-	rsdm <- rslt$rsdm
 	#
+	cvls <- wvls
 	wnum <- ncol(wvls)
 	#
+	#rqrw <- qr.R(qrwv)
+	##whiv <- qr_safe_solve(rqrw, qr_safe_solve(t(rqrw), diag(1, ncol(rqrw))))
+	#temp <- safe_forwardsolve(t(rqrw), diag(1, ncol(rqrw)))
+	#whiv <- safe_backsolve(rqrw, temp)
+	#cent <- cvls %*% whiv
+	#cent <- crossprod(cent)
+	#
 	# rqrw <- qr.R(qrwv)
-	# #whiv <- qr_safe_solve(rqrw, qr_safe_solve(t(rqrw), diag(1, ncol(rqrw))))
-	# temp <- safe_forwardsolve(t(rqrw), diag(1, ncol(rqrw)))
-	# whiv <- safe_backsolve(rqrw, temp)
-	# cent <- cvls %*% whiv
-	# cent <- crossprod(cent)
-	cent <- crossprod(cvls %*% helperkit::sqrtinvprod(qrwv, TRUE))
+	# #whiv <- qr_safe_solve(t(rqrw), diag(1, ncol(rqrw)))
+	# whiv <- safe_forwardsolve(t(rqrw), diag(1, ncol(rqrw)))
+	# cent <- crossprod(whiv)
+	cent <- crossprod(helperkit::sqrtinvprod(qrwv, FALSE))
 	#
-	# Standard asymptotic theory, covariance matrix of vec(cffs')
-	#
-	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
 	lrvr <- lrvarstd(yvls, zvls, vvls, krnl, band)
 	long <- lrvr$longvar
 	clrv <- lrvr$clrv
@@ -44,16 +57,6 @@ imls <- function(
 	cvrs <- clrv %x% cent
 	csds <- matrix(sqrt(diag(cvrs)), wnum, ynum)
 	csds <- t(csds)
-	#
-	# Fixed-b asymptotic theory:
-	#
-	lrvr <- lrvar::lrvar(rbind(rsdm[1, , drop = FALSE], diff(rsdm)), krnl, band)
-	clrb <- lrvr$longvar
-	fixb <- lrvr$bwdh/lgth
-	#
-	cvrb <- clrb %x% cent
-	csdb <- matrix(sqrt(diag(cvrb)), wnum, ynum)
-	csdb <- t(csdb)
 	#
 	# Restricted Case:
 	#
@@ -71,24 +74,24 @@ imls <- function(
 		wght <- helperkit::safe_inv(clrv)
 	}
 	#
-	rslt <- helperkit::rls(s1yv, wvls, rmat, rvec, wght)
+	rslt <- helperkit::rls(yadj, wvls, rmat, rvec, wght)
 	ahlf <- rslt$ahlf
 	cfff <- rslt$cfff
 	cffr <- rslt$cffr
 	fitr <- rslt$fitr
 	rsdr <- rslt$rsdr
 	#
-	rfit <- tcrossprod(zvls, cffr[, seq_len(znum), drop = FALSE])
+    rfit <- tcrossprod(zvls, cffr[, seq_len(znum), drop = FALSE])
 	rrsd <- yvls - rfit
 	#
-	# rqra <- qr.R(qr(ahlf))
-	# #ahiv <- qr_safe_solve(rqra, qr_safe_solve(t(rqra), diag(1, ncol(rqra))))
-	# temp <- safe_forwardsolve(t(rqra), diag(1, ncol(rqra)))
-	# ahiv <- safe_backsolve(rqra, temp)
+	#rqra <- qr.R(qr(ahlf))
+	##ahiv <- qr_safe_solve(rqra, qr_safe_solve(t(rqra), diag(1, ncol(rqra))))
+	#temp <- safe_forwardsolve(t(rqra), diag(1, ncol(rqra)))
+	#ahiv <- safe_backsolve(rqra, temp)
 	ahiv <- helperkit::sqrtinvprod(qr(ahlf), TRUE)
 	#
-	#bhlf <- ((safe_chol(clrv) %*% wght) %x% cvls) %*% rmat
-	bhlf <- helperkit::calcbhlf(cvls, clrv, rmat, wght)
+	#bhlf <- ((safe_chol(clrv) %*% wght) %x% cvls) %*% rmat # cvls == wvls
+	bhlf <- helperkit::calcbhlf(cvls, clrv, rmat, wght) # cvls == wvls
 	#
 	cvrf <- bhlf %*% ahiv
 	cvrr <- tcrossprod(cvrf, rmat)
@@ -105,10 +108,6 @@ imls <- function(
 		cvrs = cvrs, #cvru
 		csds = csds, #csdu
 		clrv = clrv,
-		rsdm = rsdm,
-		fixb = fixb,
-		cvrb = cvrb,
-		csdb = csdb,
 		cffr = cffr,
 		fitr = fitr,
 		rsdr = rsdr,

@@ -4,6 +4,6 @@ kpssstat <- function(tsrs, dvls = NULL, krnl = "ba", band = "and") { # no fixed-
 	} else {
 		rsds <- qr.resid(qr(dvls), tsrs)
 	}
-	long <- lrvar(rsds, krnl, band)$longvar
+	long <- lrvar::lrvar(rsds, krnl, band)$longvar
     return(kpssstatint(rsds, long))
 }

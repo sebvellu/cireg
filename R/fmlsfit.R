@@ -11,7 +11,7 @@ fmlsfit <- function(
 	znum <- ncol(zvls)
 	xnum <- ncol(xvls)
 	#
-	vvls <- diffdtrnd(xvls, dtrn, step)
+	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
 	lrvr <- lrvarstd(yvls, zvls, vvls, krnl, band)
     lrso <- lrvr$lrso
     clrv <- lrvr$clrv
@@ -29,8 +29,8 @@ fmlsfit <- function(
 	#
     qrwv <- qr(wvls)
 	rqrw <- qr.R(qrwv)
-	#whiv <- qr_safe_solve(t(rqrw), diag(1, ncol(rqrw)))
-	whiv <- safe_forwardsolve(t(rqrw), diag(1, ncol(rqrw)))
+	#whiv <- helperkit::qr_safe_solve(t(rqrw), diag(1, ncol(rqrw)))
+	whiv <- helperkit::safe_forwardsolve(t(rqrw), diag(1, ncol(rqrw)))
 	cent <- crossprod(whiv)
     #
     # lsfit
@@ -48,7 +48,7 @@ fmlsfit <- function(
         fitr <- fits
         rsdr <- rsds
     } else {
-	    rslt <- rfmls(ymod, yadj, yols, xvls, rmat, rvec, wght)
+	    rslt <- helperkit::rfmls(ymod, yadj, yols, xvls, rmat, rvec, wght)
 	    ahlf <- rslt$ahlf
         cfff <- rslt$cfff
 	    cffr <- rslt$cffr

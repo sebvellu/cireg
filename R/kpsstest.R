@@ -56,7 +56,7 @@ kpsstest <- function(
     smpl = 1000, simu = 10000, tolr = .Machine$double.eps
 ) {
     lgth <- length(tsrs)
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     stat <- kpssstat(tsrs, dvls, krnl, band)
     crit <- getkpssqntl(1 - sigl, dpow, smpl, simu, tolr)
     rjct <- (stat > crit)

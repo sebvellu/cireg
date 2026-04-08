@@ -20,5 +20,5 @@ shinimcmprquant <- function(prob, zpow, zadd, lgth = 1000, simu = 10000) {
 		#
         rslt[indx] <- kpssstatint(rsds, 1)
     }
-	return(get_quantile(rslt, prob))
+	return(helperkit::get_quantile(rslt, prob))
 }

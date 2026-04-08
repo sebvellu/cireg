@@ -60,7 +60,7 @@ phztest <- function(
     smpl = 1000, simu = 10000, tolr = .Machine$double.eps
 ) {
     lgth <- length(tsrs)
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     stat <- difustat(tsrs, dvls, NULL, step)
     stat <- phzstat(stat, krnl, band, step)
     crit <- getdifuqntl(sigl, dpow, 0, smpl, simu, tolr)

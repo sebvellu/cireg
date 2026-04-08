@@ -2,7 +2,7 @@ lsfit <- function(yvls, xvls, rmat = NULL, rvec = NULL, wght = NULL) {
 	lgth <- nrow(yvls)
 	qrxv <- qr(xvls)
     #
-	#cffs <- qr_safe_solve(xvls, yvls)
+	#cffs <- helperkit::qr_safe_solve(xvls, yvls)
 	#fits <- xvls %*% cffs
 	#rsds <- yvls - fits
 	#cffs <- t(cffs)
@@ -18,7 +18,7 @@ lsfit <- function(yvls, xvls, rmat = NULL, rvec = NULL, wght = NULL) {
         fitr <- fits
         rsdr <- rsds
     } else {
-	    rslt <- rls(yvls, xvls, rmat, rvec, wght)
+	    rslt <- helperkit::rls(yvls, xvls, rmat, rvec, wght)
 	    ahlf <- rslt$ahlf
         cfff <- rslt$cfff
 	    cffr <- rslt$cffr

@@ -11,7 +11,7 @@ phzstat <- function(objt, krnl = "ba", band = "and", step = 2) {
 	#
     # Conventional, PP88
 	#
-    long <- lrvar(rsds, krnl, band)$longvar
+    long <- lrvar::lrvar(rsds, krnl, band)$longvar
     #
 	zcff <- cffs - ((long - shrt)/2)/(deno/lgth^2)
 	ztst <- sqrt(shrt/long) * tsta - ((long - shrt)/2)/sqrt(long * deno/lgth^2)

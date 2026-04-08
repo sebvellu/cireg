@@ -14,7 +14,7 @@ phzfbstat <- function(objt, krnl = "ba", band = "and") {
 	cffm <- coef + (shrt/2)/(deno/lgth)
 	rsdm <- yvls - cffm * ylag
 	#
-	lrvr <- lrvar(rsdm, krnl, band)
+	lrvr <- lrvar::lrvar(rsdm, krnl, band)
 	fixb <- lrvr$bwdh/lgth
 	long <- lrvr$longvar
 	#

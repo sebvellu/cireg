@@ -12,8 +12,11 @@ povrstat <- function(
 		wvls <- cbind(xyvl[1:(lgth - 1), ], dvls[2:lgth, ])
 		rols <- qr.resid(qr(wvls), xyvl[2:lgth, , drop = FALSE])
 		#
-		long <- lrvar(rols, krnl, band)$longvar
-		lrso <- safesolve(long[-1, -1, drop = FALSE], long[-1, 1, drop = FALSE])
+		long <- lrvar::lrvar(rols, krnl, band)$longvar
+		lrso <- helperkit::safesolve(
+			mata = long[-1, -1, drop = FALSE], 
+			matb = long[-1, 1, drop = FALSE]
+		)
 		long <- long[1, 1] - long[1, -1] %*% lrso
 	}
 	#

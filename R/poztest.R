@@ -59,7 +59,7 @@ poztest <- function(
     smpl = 1000, simu = 10000, tolr = .Machine$double.eps
 ) {
     lgth <- length(yvls)
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     stat <- difustat(yvls, dvls, xvls, NULL)
     stat <- phzstat(stat, krnl, band, NULL)
     crit <- getdifuqntl(sigl, dpow, NCOL(xvls), smpl, simu, tolr)

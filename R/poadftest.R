@@ -53,7 +53,7 @@ poadftest <- function(
     smpl = 1000, simu = 10000, tolr = .Machine$double.eps
 ) {
     lgth <- length(yvls)
-    dvls <- polydet(lgth, dpow)
+    dvls <- helperkit::polydet(lgth, dpow)
     tsrs <- qr.resid(qr(cbind(dvls, xvls)), yvls)
     lags <- adflags(tsrs, NULL, maxl, crit)
     stat <- adfstat(tsrs, NULL, lags)$stat

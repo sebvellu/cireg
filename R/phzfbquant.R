@@ -4,7 +4,7 @@ phzfbquant <- function(
 ) {
 	band <- ceiling(bfrc * lgth)
 	#
-	dvls <- polydet(lgth, dpow)
+	dvls <- helperkit::polydet(lgth, dpow)
 	rslt <- matrix(NA_real_, simu, 2) #matrix(0, simu, 4)
 	#
 	for (indx in 1:simu) {
@@ -20,5 +20,5 @@ phzfbquant <- function(
 		rslt[indx, ] <- phzfbstat(objt, krnl, band)[1:2]
 	}
     #
-	return(apply(rslt, 2, get_quantile, prob))
+	return(apply(rslt, 2, helperkit::get_quantile, prob))
 }

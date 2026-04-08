@@ -8,10 +8,10 @@ kpssquant <- function(
 	    if (is.null(dpow)) {
             rsds <- tsrs
 	    } else {
-            dvls <- polydet(lgth, dpow)
+            dvls <- helperkit::polydet(lgth, dpow)
 		    rsds <- qr.resid(qr(dvls), tsrs)
 	    }
         rslt[indx] <- kpssstatint(rsds, 1)
     }
-    return(get_quantile(rslt, prob))
+    return(helperkit::get_quantile(rslt, prob))
 }

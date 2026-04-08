@@ -8,10 +8,10 @@ ctstatint <- function(s1rs, long = NULL) {
 	    stat[1] <- sum(diag(vala))/lgth^2
 	    stat[2] <- sum(diag(valb))/lgth^4
     } else {
-	    stat[1] <- sum(diag(safesolve(long, vala)))/lgth^2
-	    stat[2] <- sum(diag(safesolve(long, valb)))/lgth^4	
+	    stat[1] <- sum(diag(helperkit::safesolve(long, vala)))/lgth^2
+	    stat[2] <- sum(diag(helperkit::safesolve(long, valb)))/lgth^4	
     }
-    stat[3] <- sum(diag(safesolve(vala, valb)))/lgth^2
+    stat[3] <- sum(diag(helperkit::safesolve(vala, valb)))/lgth^2
     #
 	return(stat)
 }

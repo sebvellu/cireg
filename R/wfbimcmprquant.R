@@ -31,12 +31,13 @@ wfbimcmprquant <- function(
 		# s1zo <- cbind(s1zx, orth)
 		# rsdm <- qr.resid(qr(s1zo), s1yv)
 		rsdm <- imlsfit(yvls, zvls, xvls, zadd, NULL, NULL, NULL)$rsdm
-		lrvr <- lrvar(rbind(rsdm[1, ], diff(rsdm)), krnl, band)$longvar
+		lrvr <- lrvar::lrvar(rbind(rsdm[1, ], diff(rsdm)), krnl, band)$longvar
 		nvls <- stats::rnorm(hypo * ynum)
-		stat <- sum(nvls * ((safesolve(lrvr) %x% diag(1, hypo)) %*% nvls))
+		lrvi <- helperkit::safesolve(lrvr)
+		stat <- sum(nvls * ((lrvi %x% diag(1, hypo)) %*% nvls))
 		#
 		rslt[indx] <- stat
 	}
 	#
-	return(get_quantile(rslt, prob))
+	return(helperkit::get_quantile(rslt, prob))
 }
