@@ -4,7 +4,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of cireg is to ...
+The cireg package provides tools for estimation and hypothesis testing in
+(systems of) linear and nonlinear cointegrating regressions.
 
 ## Installation
 
