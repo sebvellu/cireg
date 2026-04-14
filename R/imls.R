@@ -38,7 +38,7 @@ imls <- function(
 	#
 	vvls <- helperkit::diffdtrnd(xvls, dtrn, step)
 	lrvr <- lrvarstd(yvls, zvls, vvls, krnl, band)
-	long <- lrvr$longvar
+	long <- lrvr$lrvr$longvar
 	clrv <- lrvr$clrv
 	#
 	cvrs <- clrv %x% cent

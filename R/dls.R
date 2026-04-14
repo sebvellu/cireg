@@ -51,7 +51,7 @@ dls <- function(
 	cent <- crossprod(helperkit::sqrtinvprod(qrwv, FALSE))
 	#
 	lrvr <- lrvarstd(yvls, zvls, vvls, krnl, band)
-	long <- lrvr$longvar
+	long <- lrvr$lrvr$longvar
 	clrv <- lrvr$clrv
 	#
 	cvrs <- clrv %x% cent
