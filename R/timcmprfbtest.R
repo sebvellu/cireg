@@ -49,7 +49,7 @@ timcmprfbtest <- function(
     stopifnot(objt$ynum == 1)
     #
     cffs <- c(t(objt$cffs))
-    cvar <- objt$cvrs
+    cvar <- objt$cvrb
     #
     stat <- tstat(cffs, cvar, rvec, rval)
     cfun <- function(prob) {
