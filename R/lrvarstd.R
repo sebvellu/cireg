@@ -1,5 +1,5 @@
 
-lrvarstd <- function(yvls, zvls, vvls, krnl = "ba", band = "band") {
+lrvarstd <- function(yvls, zvls, vvls, krnl = "ba", band = "and") {
 	yvls <- as.matrix(yvls)
 	#
 	rols <- cbind(qr.resid(qr(zvls), yvls)[-1, ], vvls)
