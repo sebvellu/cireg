@@ -8,9 +8,9 @@ povrstat <- function(
 	rsds <- qr.resid(qr(cbind(dvls, xaug)), yvls)
 	#
 	if (is.null(long)) {
-		xyvl <- cbind(xvls, yvls)
-		wvls <- cbind(xyvl[1:(lgth - 1), ], dvls[2:lgth, ])
-		rols <- qr.resid(qr(wvls), xyvl[2:lgth, , drop = FALSE])
+		yxvl <- cbind(yvls, xvls)
+		wvls <- cbind(yxvl[1:(lgth - 1), ], dvls[2:lgth, ])
+		rols <- qr.resid(qr(wvls), yxvl[2:lgth, , drop = FALSE])
 		#
 		long <- lrvar::lrvar(rols, krnl, band)$longvar
 		lrso <- helperkit::safesolve(
