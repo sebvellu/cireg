@@ -39,7 +39,7 @@ ctimcmprtest <- function(
 ) {
     crsd <- crossprod(objt$rsds)
     ccrs <- crossprod(apply(objt$rsds, 2, cumsum))
-    stat <- ctstatint(objt$clrv, objt$rsds)
+    stat <- ctstatint(objt$rsds, objt$clrv)
     crit <- getctimcmprqntl(1 - sigl, objt$ynum, objt$zpow, objt$zadd, smpl, simu, tolr)
     if (is.matrix(crit)) {
         rjct <- t(apply(crit, 1, function(x) {return(stat > x)}))
