@@ -1,9 +1,9 @@
-ctimcmprstat <- function(
+ct2imcmprstat <- function(
 	yvls, zpow, xvls, zadd = NULL, krnl = "ba", band = "and",
     dtrn = NULL, step = 2
 ) {
 	zvls <- getzvls(zpow, xvls)
-	return(ctimlsstat(
+	return(ct2imlsstat(
         yvls = yvls, 
         zvls = zvls,
         xvls = xvls,

@@ -104,7 +104,7 @@ imls_imp <- function(
 		rsds = rsds, #rsdu
 		cvrs = cvrs, #cvru
 		csds = csds, #csdu
-		#clrv = clrv,
+		clrv = clrv,
 		rsdm = rsdm,
 		#fixb = fixb,
 		#cvrb = cvrb,

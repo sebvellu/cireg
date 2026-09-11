@@ -1,4 +1,4 @@
-ctimlsstat <- function(
+ct2imlsstat <- function(
 	yvls, zvls, xvls, zadd = NULL, krnl = "ba", band = "and",
     dtrn = NULL, step = 2
 ) {

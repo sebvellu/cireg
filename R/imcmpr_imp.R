@@ -112,6 +112,8 @@
 #'     asymptotic theory.
 #'   - `csds`: Matrix of size n x (I + m) giving the estimated asymptotic
 #'     standard deviations of `cffs` for conventional asymptotic theory.
+#'   - `clrv`: Matrix of size n x n of the true conditional long-run
+#'     covariance matrix Omega_u.v used for conventional asymptotic theory.
 #'   - `rsdm`: Matrix of size T x n of modified IM-OLS residuals used for
 #'     fixed-b long-run covariance matrix estimation.
 #'   - `cvrb`: Matrix of size ((I + m) * n) x ((I + m) * n) giving the 

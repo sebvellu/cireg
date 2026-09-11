@@ -103,6 +103,8 @@ estimated asymptotic covariance matrix of vec(\code{cffs}') for conventional
 asymptotic theory.
 \item \code{csds}: Matrix of size n x (I + m) giving the estimated asymptotic
 standard deviations of \code{cffs} for conventional asymptotic theory.
+\item \code{clrv}: Matrix of size n x n of the true conditional long-run
+covariance matrix Omega_u.v used for conventional asymptotic theory.
 \item \code{rsdm}: Matrix of size T x n of modified IM-OLS residuals used for
 fixed-b long-run covariance matrix estimation.
 \item \code{cvrb}: Matrix of size ((I + m) * n) x ((I + m) * n) giving the
