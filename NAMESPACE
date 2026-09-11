@@ -2,11 +2,9 @@
 
 export(adftest)
 export(ctimcmprtest)
-export(fmreg)
 export(imcmpr)
 export(imcmpr_imp)
 export(kpsstest)
-export(olshac)
 export(phzfbtest)
 export(phztest)
 export(poadftest)

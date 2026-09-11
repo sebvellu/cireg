@@ -1,5 +1,3 @@
-#' @export
-#' 
 fmreg <- function(
 	yvls, dvls, xvls, krnl = "ba", band = "and",
     rmat = NULL, rvec = NULL, wght = NULL, dtrn = NULL, step = 2
